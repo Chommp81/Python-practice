@@ -1,3 +1,5 @@
+# http://www.practicepython.org/exercise/2014/12/27/24-draw-a-game-board.html
+
 def draw_board():
 	#Take user input and check for integer
 	while True:
