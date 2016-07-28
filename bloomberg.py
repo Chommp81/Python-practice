@@ -21,7 +21,7 @@ def getRate(url):
 	rate = soup.find('div', class_='price').get_text()
 	print "1", cur1, "buys", rate, cur2
 	
-	cutoff = 0.77 #this sets the rate above which we want to receive an alert
+	cutoff = 0.75 #this sets the rate above which we want to receive an alert
 
 	#if the rate is AUDUSD and is more than the cutoff, then send an email.
 	if float(rate) > cutoff and cur1=="AUD" and cur2=="USD":
@@ -58,7 +58,7 @@ def sendEmail(cur1,cur2,rate):
 	''' % (rate, cur1, rate, cur2)
 	
 	#send the message
-	server.sendmail('jonathonbriggs@gmail.com','wilson.palooza@gmail.com',msg)
+	server.sendmail(secrets.fromAddress,secrets.toAddress,msg)
 	server.quit()
 
 def chooseCurrencies():
